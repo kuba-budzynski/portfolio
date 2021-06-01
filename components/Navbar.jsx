@@ -1,3 +1,4 @@
+import { Popover, Transition } from '@headlessui/react';
 import {
     BookmarkAltIcon,
     CalendarIcon,
@@ -12,12 +13,10 @@ import {
     ViewGridIcon,
     XIcon
 } from '@heroicons/react/outline';
-import { Popover, Transition } from '@headlessui/react';
-
 import { ChevronDownIcon } from '@heroicons/react/solid';
-import { Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Fragment } from 'react';
 import logo from '../public/images/logos/white-logo.svg';
 
 const solutions = [
@@ -95,7 +94,7 @@ export default function Navbar() {
                                     <MenuIcon className="h-8 w-8 self-center" aria-hidden="true" />
                                 </Popover.Button>
                                 <div className="relative self-center">
-                                    <Image src={logo} width={40} height={40} className="animate-pulse" />
+                                    <Image src={logo} width={40} height={40} className="animate-pulse" alt="Logo" />
                                 </div>
                             </div>
 
@@ -111,7 +110,7 @@ export default function Navbar() {
                                 <div className="relative self-center cursor-pointer">
                                     <Link href="/">
                                         <a>
-                                            <Image src={logo} width={60} height={60} className="animate-pulse" />
+                                            <Image src={logo} width={60} height={60} className="animate-pulse" alt="Logo" />
                                         </a>
                                     </Link>
                                 </div>
