@@ -1,22 +1,21 @@
-import { Popover, Transition } from '@headlessui/react';
 import {
     BookmarkAltIcon,
     CalendarIcon,
     ChartBarIcon,
     CursorClickIcon,
     MenuIcon,
-    PhoneIcon,
-    PlayIcon,
     RefreshIcon,
     ShieldCheckIcon,
     SupportIcon,
     ViewGridIcon,
     XIcon
 } from '@heroicons/react/outline';
+import { Popover, Transition } from '@headlessui/react';
+
 import { ChevronDownIcon } from '@heroicons/react/solid';
+import { Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Fragment } from 'react';
 import logo from '../public/images/logos/white-logo.svg';
 
 const solutions = [
@@ -46,10 +45,7 @@ const solutions = [
         icon: RefreshIcon
     }
 ];
-const callsToAction = [
-    { name: 'Watch Demo', href: '#', icon: PlayIcon },
-    { name: 'Contact Sales', href: '#', icon: PhoneIcon }
-];
+
 const resources = [
     {
         name: 'Help Center',
@@ -83,7 +79,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
     return (
-        <Popover className="bg-blueGray-800 shadow-lg absolute top-0 w-screen max-w-full">
+        <Popover className="bg-blueGray-800 shadow-lg absolute top-0 w-screen max-w-full z-40">
             {({ open }) => (
                 <>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6">

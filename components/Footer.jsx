@@ -15,10 +15,6 @@ function Footer() {
                     </div>
                     <div className="text-white flex flex-col md:items-center mt-4">
                         <h1 className="text-2xl uppercase font-semibold">Fullstack developer</h1>
-                        {/* <div className="md:flex items-center mt-5 md:mt-10 text-base text-color f-f-l">
-                            <h2 className=" md:mr-6 pb-4 md:py-0 cursor-pointer">Download Now</h2>
-                            <h2 className="cursor-pointer">License</h2>
-                        </div> */}
                         <div className="my-6 flex justify-center space-x-8">
                             <a href="https://github.com/kuba-budzynski" target="_blank">
                                 <div className="group">

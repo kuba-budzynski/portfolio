@@ -13,32 +13,32 @@ function Tools() {
                     Favourite tools
                 </h1>
                 <p className="text-base md:text-lg lg:text-xl text-center text-gray-600 font-normal xl:w-10/12 xl:mx-auto">
-                    Some of the tools I'm used to working with
+                    Some of the tools I'm used to working with.
                 </p>
             </div>
             <div className="py-4 flex flex-wrap">
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center border-r border-b md:border-b-0 border-gray-200  py-4 md:py-6 items-center cursor-pointer">
                     <a href="https://code.visualstudio.com/" target="_blank">
                         <Image src={vscode} width={80} height={80} alt="VS Code" />
-                        <p className="text-blueGray-500 text-lg text-center font-semibold">VS Code</p>
+                        <p className="text-blueGray-600 text-lg text-center font-semibold">VS Code</p>
                     </a>
                 </div>
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center md:border-r border-b md:border-b-0 border-gray-200  py-4 md:py-6 items-center cursor-pointer">
                     <a href="https://www.jetbrains.com/idea/" target="_blank">
                         <Image src={intellij} width={80} height={80} alt="IntelliJ Idea" />
-                        <p className="text-blueGray-500 text-lg text-center font-semibold">IntelliJ IDEA</p>
+                        <p className="text-blueGray-600 text-lg text-center font-semibold">IntelliJ IDEA</p>
                     </a>
                 </div>
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center border-r border-gray-200 py-4 md:py-6 items-center cursor-pointer">
                     <a href="https://www.gitkraken.com/" target="_blank">
                         <Image src={gitkraken} width={80} height={80} alt="GitKraken" />
-                        <p className="text-blueGray-500 text-lg text-center font-semibold">GitKraken</p>
+                        <p className="text-blueGray-600 text-lg text-center font-semibold">GitKraken</p>
                     </a>
                 </div>
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center border-gray-200  py-4 md:py-6 items-center cursor-pointer">
                     <a href="https://www.adobe.com/products/illustrator.html" target="_blank">
                         <Image src={illustrator} width={80} height={80} alt="Adobe Illustrator" />
-                        <p className="text-blueGray-500 text-lg text-center font-semibold">Illustrator</p>
+                        <p className="text-blueGray-600 text-lg text-center font-semibold">Illustrator</p>
                     </a>
                 </div>
             </div>
