@@ -1,11 +1,13 @@
 import CallToAction from '../components/CallToAction';
 import Footer from '../components/Footer';
 import Head from 'next/head';
-import LandingPage from '../components/LandingPage';
 import Navbar from '../components/Navbar';
 import Technologies from '../components/Technologies';
 import Timeline from '../components/Timeline';
 import Tools from '../components/Tools';
+import dynamic from 'next/dynamic';
+
+const LandingPage = dynamic(() => import('../components/LandingPage'), { ssr: false });
 
 export default function Home() {
     return (
@@ -26,6 +28,7 @@ export default function Home() {
                     <div className="w-screen max-w-full">
                         <CallToAction />
                     </div>
+
                     <div className="w-full max-w-8xl mx-auto">
                         <Tools />
                     </div>

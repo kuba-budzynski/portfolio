@@ -18,9 +18,9 @@ module.exports = {
             xxxl: '2560px'
         },
         extend: {
-            backgroundImage: () => ({
-                wave: "url('https://svgshare.com/i/XnV.svg')"
-                // wave: "url('https://svgshare.com/i/Xng.svg')"
+            backgroundImage: (theme) => ({
+                wave: "url('https://svgshare.com/i/XnV.svg')",
+                'wave-static': "url('https://svgshare.com/i/XoH.svg')"
             }),
             spacing: {
                 128: '32rem',

@@ -10,6 +10,7 @@ import {
     ViewGridIcon,
     XIcon
 } from '@heroicons/react/outline';
+import { FaGithub, FaHome, FaUserGraduate } from 'react-icons/fa';
 import { Popover, Transition } from '@headlessui/react';
 
 import { ChevronDownIcon } from '@heroicons/react/solid';
@@ -17,6 +18,7 @@ import { Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '../public/images/logos/white-logo.svg';
+import logoDark from '../public/images/logos/purple-logo.svg';
 
 const solutions = [
     {
@@ -99,9 +101,12 @@ export default function Navbar() {
                                     <a className="text-lg font-medium text-white hover:text-indigo-400 self-center">Home</a>
                                 </Link>
 
-                                <Link href="/interests">
-                                    <a className="text-lg font-medium text-white hover:text-indigo-400 self-center">Interests</a>
-                                </Link>
+                                <a
+                                    className="text-lg font-medium text-white hover:text-indigo-400 self-center"
+                                    href="https://github.com/kuba-budzynski"
+                                    target="_blank">
+                                    Repository
+                                </a>
 
                                 <div className="relative self-center cursor-pointer">
                                     <Link href="/">
@@ -111,8 +116,8 @@ export default function Navbar() {
                                     </Link>
                                 </div>
 
-                                <Link href="/faq">
-                                    <a className="text-lg font-medium text-white hover:text-indigo-400 self-center">FAQ</a>
+                                <Link href="/aboutme">
+                                    <a className="text-lg font-medium text-white hover:text-indigo-400 self-center">About me</a>
                                 </Link>
 
                                 <Popover className="relative self-center">
@@ -207,12 +212,10 @@ export default function Navbar() {
                             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                                 <div className="pt-5 pb-6 px-5">
                                     <div className="flex items-center justify-between">
-                                        <div>
-                                            <img
-                                                className="h-8 w-auto"
-                                                src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                                                alt="Workflow"
-                                            />
+                                        <div className="relative self-center">
+                                            <Link href="/">
+                                                <Image src={logoDark} width={40} height={40} className="animate-pulse" alt="Logo" />
+                                            </Link>
                                         </div>
                                         <div className="-mr-2">
                                             <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -223,15 +226,25 @@ export default function Navbar() {
                                     </div>
                                     <div className="mt-6">
                                         <nav className="grid gap-y-8">
-                                            {solutions.map((item) => (
-                                                <a
-                                                    key={item.name}
-                                                    href={item.href}
-                                                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                                                    <item.icon className="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
-                                                    <span className="ml-3 text-base font-medium text-gray-900">{item.name}</span>
+                                            <Link href="/">
+                                                <a className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                                                    <FaHome className="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
+                                                    <span className="ml-3 text-base font-medium text-gray-900">Home page</span>
                                                 </a>
-                                            ))}
+                                            </Link>
+                                            <a
+                                                className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                                                href="https://github.com/kuba-budzynski"
+                                                target="_blank">
+                                                <FaGithub className="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
+                                                <span className="ml-3 text-base font-medium text-gray-900">Repository</span>
+                                            </a>
+                                            <Link href="/aboutme">
+                                                <a className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                                                    <FaUserGraduate className="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
+                                                    <span className="ml-3 text-base font-medium text-gray-900">About me</span>
+                                                </a>
+                                            </Link>
                                         </nav>
                                     </div>
                                 </div>
@@ -249,19 +262,6 @@ export default function Navbar() {
                                                 {item.name}
                                             </a>
                                         ))}
-                                    </div>
-                                    <div>
-                                        <a
-                                            href="#"
-                                            className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-                                            Sign up
-                                        </a>
-                                        <p className="mt-6 text-center text-base font-medium text-gray-500">
-                                            Existing customer?{' '}
-                                            <a href="#" className="text-indigo-600 hover:text-indigo-500">
-                                                Sign in
-                                            </a>
-                                        </p>
                                     </div>
                                 </div>
                             </div>
