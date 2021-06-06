@@ -1,85 +1,37 @@
-import {
-    BookmarkAltIcon,
-    CalendarIcon,
-    ChartBarIcon,
-    CursorClickIcon,
-    MenuIcon,
-    RefreshIcon,
-    ShieldCheckIcon,
-    SupportIcon,
-    ViewGridIcon,
-    XIcon
-} from '@heroicons/react/outline';
-import { FaGithub, FaHome, FaUserGraduate, FaBriefcase } from 'react-icons/fa';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import { FaGithub, FaHome, FaUserGraduate, FaBriefcase, FaLink } from 'react-icons/fa';
 import { Popover, Transition } from '@headlessui/react';
-
+import styled from '../styles/scrollbar.module.scss';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import { Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '../public/images/logos/white-logo.svg';
 import logoDark from '../public/images/logos/purple-logo.svg';
-
-const solutions = [
-    {
-        name: 'Analytics',
-        description: 'Get a better understanding of where your traffic is coming from.',
-        href: '#',
-        icon: ChartBarIcon
-    },
-    {
-        name: 'Engagement',
-        description: 'Speak directly to your customers in a more meaningful way.',
-        href: '#',
-        icon: CursorClickIcon
-    },
-    { name: 'Security', description: "Your customers' data will be safe and secure.", href: '#', icon: ShieldCheckIcon },
-    {
-        name: 'Integrations',
-        description: "Connect with third-party tools that you're already using.",
-        href: '#',
-        icon: ViewGridIcon
-    },
-    {
-        name: 'Automations',
-        description: 'Build strategic funnels that will drive your customers to convert',
-        href: '#',
-        icon: RefreshIcon
-    }
-];
-
-const resources = [
-    {
-        name: 'Help Center',
-        description: 'Get all of your questions answered in our forums or contact support.',
-        href: '#',
-        icon: SupportIcon
-    },
-    {
-        name: 'Guides',
-        description: 'Learn how to maximize our platform to get the most out of it.',
-        href: '#',
-        icon: BookmarkAltIcon
-    },
-    {
-        name: 'Events',
-        description: 'See what meet-ups and other events we might be planning near you.',
-        href: '#',
-        icon: CalendarIcon
-    },
-    { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#', icon: ShieldCheckIcon }
-];
-const recentPosts = [
-    { id: 1, name: 'Boost your conversion rate', href: '#' },
-    { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
-    { id: 3, name: 'Improve your customer experience', href: '#' }
-];
+import { client } from '../graphql/client';
+import useSWR from 'swr';
+import { Loader } from '../components/utils';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
 }
 
+const fetcher = (query) => client.request(query);
+
 export default function Navbar() {
+    const { data, error } = useSWR(
+        `query MyQuery {
+            projects {
+                id,
+                slug
+                title
+                url
+                github
+            }
+        }`,
+        fetcher
+    );
+
     return (
         <Popover className="bg-blueGray-800 shadow-lg absolute top-0 w-screen max-w-full z-40">
             {({ open }) => (
@@ -150,51 +102,43 @@ export default function Navbar() {
                                                 <Popover.Panel
                                                     static
                                                     className="absolute -left-full transform -translate-x-1/2 z-40 mt-8 px-2 w-screen max-w-md sm:px-0">
-                                                    <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                                                        <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                                                            {resources.map((item) => (
-                                                                <a
-                                                                    key={item.name}
-                                                                    href={item.href}
-                                                                    className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                                                                    <item.icon className="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
-                                                                    <div className="ml-4">
-                                                                        <p className="text-base font-medium text-gray-900">{item.name}</p>
-                                                                        <p className="mt-1 text-sm text-gray-500">{item.description}</p>
+                                                    <div className=" rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden bg-white">
+                                                        <h1 className="text-left text-lg text-gray-600 font-semibold pt-4 pl-4">
+                                                            Latest repositories
+                                                        </h1>
+                                                        <div
+                                                            className={`relative flex flex-col overflow-y-scroll max-h-64 ${styled.scrollbar} divide-y-2 divide-gray-100 pb-4`}>
+                                                            {!data ? (
+                                                                <div className="w-full h-16 mx-auto">
+                                                                    <Loader color="text-indigo-500"></Loader>
+                                                                </div>
+                                                            ) : (
+                                                                data.projects.map((d) => (
+                                                                    <div className="w-full h-full space-y-1 py-3 px-4" key={d.url}>
+                                                                        <p className="text-center text-base font-semibold text-gray-600">{d.title}</p>
+                                                                        <div className="flex space-x-5 w-full justify-center">
+                                                                            <a className="" href={d.github} target="_blank">
+                                                                                <FaGithub className="w-5 h-5 text-indigo-400 hover:text-indigo-500" />
+                                                                            </a>
+                                                                            {d.url != null && (
+                                                                                <a className="" href={d.url} target="_blank">
+                                                                                    <FaLink className="w-5 h-5 text-indigo-400 hover:text-indigo-500" />
+                                                                                </a>
+                                                                            )}
+                                                                        </div>
                                                                     </div>
-                                                                </a>
-                                                            ))}
+                                                                ))
+                                                            )}
                                                         </div>
                                                         <Link href="/projects">
-                                                            <a className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                                                                <FaBriefcase className="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
-                                                                <span className="ml-3 text-base font-medium text-gray-900">Projects</span>
+                                                            <a className="p-5 flex items-cente bg-gray-100 hover:bg-gray-200 w-full justify-center justify-items-center group space-x-3">
+                                                                <FaBriefcase
+                                                                    className="flex-shrink-0 h-7 w-7 text-indigo-400 group-hover:text-indigo-500"
+                                                                    aria-hidden="true"
+                                                                />
+                                                                <span className="text-base font-bold text-gray-500 uppercase">All my projects</span>
                                                             </a>
                                                         </Link>
-                                                        <div className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
-                                                            {/* <div>
-                                                                <h3 className="text-sm tracking-wide font-medium text-gray-500 uppercase">
-                                                                    Recent Posts
-                                                                </h3>
-                                                                <ul className="mt-4 space-y-4">
-                                                                    {recentPosts.map((post) => (
-                                                                        <li key={post.id} className="text-base truncate">
-                                                                            <a
-                                                                                href={post.href}
-                                                                                className="font-medium text-gray-900 hover:text-gray-700">
-                                                                                {post.name}
-                                                                            </a>
-                                                                        </li>
-                                                                    ))}
-                                                                </ul>
-                                                            </div> */}
-                                                            <div className="mt-5 text-sm">
-                                                                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                                                                    {' '}
-                                                                    View all posts <span aria-hidden="true">&rarr;</span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </Popover.Panel>
                                             </Transition>
@@ -258,22 +202,6 @@ export default function Navbar() {
                                                 </a>
                                             </Link>
                                         </nav>
-                                    </div>
-                                </div>
-                                <div className="py-6 px-5 space-y-6">
-                                    <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                                        <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-700">
-                                            Pricing
-                                        </a>
-
-                                        <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-700">
-                                            Docs
-                                        </a>
-                                        {resources.map((item) => (
-                                            <a key={item.name} href={item.href} className="text-base font-medium text-gray-900 hover:text-gray-700">
-                                                {item.name}
-                                            </a>
-                                        ))}
                                     </div>
                                 </div>
                             </div>

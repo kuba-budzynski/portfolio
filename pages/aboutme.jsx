@@ -39,7 +39,13 @@ function aboutme({ faqs }) {
                 </div>
                 <div className="w-full mx-auto flex flex-col items-center justify-center py-16">
                     <div className="w-full flex justify-center">
-                        <Image src={profile} width={300} height={300} className="mx-auto rounded-full shadow-sm" alt="Profile" />
+                        <Image
+                            src="https://ik.imagekit.io/0omc2vwzaz9/tr:w-500,h-500/profile_-w5ip8PL8.png"
+                            width={300}
+                            height={300}
+                            className="mx-auto rounded-full shadow-sm"
+                            alt="Profile"
+                        />
                     </div>
                     <p className="text-justify lg:text-center text-gray-600 text-base py-5 max-w-3xl mx-auto mb-8 px-8 lg:px-2">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
