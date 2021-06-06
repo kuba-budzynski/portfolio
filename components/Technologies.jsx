@@ -40,8 +40,8 @@ function Technologies() {
                 </div>
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center border-r border-b border-gray-200 py-4 md:py-6 items-center cursor-pointer">
                     <a href="https://nodejs.org/en/" target="_blank">
-                        <Image src={node} width={130} height={80} alt="Node.js" />
-                        <p className="text-blueGray-600 text-lg text-center font-semibold">Node.js / Express</p>
+                        <Image src={node} width={110} height={80} alt="Node.js" />
+                        <p className="text-blueGray-600 text-lg text-center font-semibold">Node.js</p>
                     </a>
                 </div>
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center border-b border-gray-200  py-4 md:py-6 items-center cursor-pointer">

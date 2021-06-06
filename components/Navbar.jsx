@@ -10,7 +10,7 @@ import {
     ViewGridIcon,
     XIcon
 } from '@heroicons/react/outline';
-import { FaGithub, FaHome, FaUserGraduate } from 'react-icons/fa';
+import { FaGithub, FaHome, FaUserGraduate, FaBriefcase } from 'react-icons/fa';
 import { Popover, Transition } from '@headlessui/react';
 
 import { ChevronDownIcon } from '@heroicons/react/solid';
@@ -96,7 +96,7 @@ export default function Navbar() {
                                 </div>
                             </div>
 
-                            <Popover.Group as="nav" focus static className="hidden md:flex space-x-10">
+                            <Popover.Group as="nav" static className="hidden md:flex space-x-10">
                                 <Link href="/">
                                     <a className="text-lg font-medium text-white hover:text-indigo-400 self-center">Home</a>
                                 </Link>
@@ -165,8 +165,14 @@ export default function Navbar() {
                                                                 </a>
                                                             ))}
                                                         </div>
+                                                        <Link href="/projects">
+                                                            <a className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                                                                <FaBriefcase className="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
+                                                                <span className="ml-3 text-base font-medium text-gray-900">Projects</span>
+                                                            </a>
+                                                        </Link>
                                                         <div className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
-                                                            <div>
+                                                            {/* <div>
                                                                 <h3 className="text-sm tracking-wide font-medium text-gray-500 uppercase">
                                                                     Recent Posts
                                                                 </h3>
@@ -181,7 +187,7 @@ export default function Navbar() {
                                                                         </li>
                                                                     ))}
                                                                 </ul>
-                                                            </div>
+                                                            </div> */}
                                                             <div className="mt-5 text-sm">
                                                                 <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
                                                                     {' '}
@@ -208,7 +214,7 @@ export default function Navbar() {
                         leave="duration-100 ease-in"
                         leaveFrom="opacity-100 scale-100"
                         leaveTo="opacity-0 scale-95">
-                        <Popover.Panel focus static className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+                        <Popover.Panel static className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
                             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                                 <div className="pt-5 pb-6 px-5">
                                     <div className="flex items-center justify-between">
@@ -243,6 +249,12 @@ export default function Navbar() {
                                                 <a className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
                                                     <FaUserGraduate className="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
                                                     <span className="ml-3 text-base font-medium text-gray-900">About me</span>
+                                                </a>
+                                            </Link>
+                                            <Link href="/projects">
+                                                <a className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                                                    <FaBriefcase className="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
+                                                    <span className="ml-3 text-base font-medium text-gray-900">Projects</span>
                                                 </a>
                                             </Link>
                                         </nav>

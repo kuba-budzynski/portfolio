@@ -1,5 +1,8 @@
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import 'react-vertical-timeline-component/style.min.css';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import 'react-alice-carousel/lib/scss/alice-carousel.scss';
+
 import '../styles/globals.scss';
 
 import { UserProvider } from '@auth0/nextjs-auth0';

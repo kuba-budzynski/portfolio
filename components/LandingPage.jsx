@@ -9,7 +9,7 @@ function LandingPage() {
         <section className={`w-screen h-full max-w-full ${ua.isFirefox || ua.isIE ? 'bg-wave-static' : 'bg-wave'} bg-bottom bg-cover bg-no-repeat`}>
             <div className="w-full h-full relative flex flex-col justify-items-center justify-center ">
                 <div className="w-full lg:w-10/12 mx-auto pt-0 space-y-6 lg:space-y-10 xl:pb-16">
-                    <div className="text-4xl lg:text-6xl xl:text-7xl text-center font-extrabold tracking-widest text-white h-20 flex justify-center justify-items-center">
+                    <div className="text-4xl lg:text-6xl xl:text-7xl text-center font-extrabold tracking-widest text-white h-20 flex justify-center justify-items-center text-shadow-md">
                         <Typist
                             cursor={{
                                 show: false

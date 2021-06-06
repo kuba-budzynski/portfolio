@@ -25,13 +25,13 @@ function aboutme({ faqs }) {
                     alt="blue pattern background"
                     className="absolute w-full h-64 md:h-96 object-center object-fit z-0"
                 />
-                <div class="relative flex flex-col items-center justify-center sm:px-0 px-6 z-20 pb-8 lg:pb-16">
-                    <div class="md:py-36 py-20">
-                        <h1 role="heading" class="xl:text-6xl md:text-5xl text-3xl font-bold leading-10 text-white text-center">
+                <div className="relative flex flex-col items-center justify-center sm:px-0 px-6 z-20 pb-8 lg:pb-16">
+                    <div className="md:py-36 py-20">
+                        <h1 role="heading" className="xl:text-6xl md:text-5xl text-3xl font-bold leading-10 text-white text-center">
                             Some info about me
                         </h1>
                     </div>
-                    <div class="lg:w-1/2 md:w-8/12 sm:w-9/12 w-full space-y-6">
+                    <div className="lg:w-1/2 md:w-8/12 sm:w-9/12 w-full space-y-6">
                         {faqs.map((faq) => (
                             <Element key={faq.id} question={faq.question} anwser={faq.anwser} />
                         ))}
