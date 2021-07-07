@@ -45,7 +45,7 @@ import circleci from '../public/images/icons/circleci.svg';
 import vercel from '../public/images/icons/vercel.svg';
 import firebase from '../public/images/icons/firebase.svg';
 import auth0 from '../public/images/icons/auth0.svg';
-import graphCMS from '../public/images/icons/graphcms.svg';
+import graphCMS from '../public/images/icons/cms.svg';
 import algolia from '../public/images/icons/algolia.svg';
 import gatsby from '../public/images/icons/gatsby.svg';
 import imagekit from '../public/images/icons/imagekit.svg';
