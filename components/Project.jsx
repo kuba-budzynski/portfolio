@@ -23,7 +23,7 @@ function Project({ project }) {
     return (
         <div className="w-full h-full px-6 pt-6 pb-2 bg-white shadow-lg md:shadow-2xl rounded-md md:rounded-xl mx-auto" ref={ref}>
             {project.picture.length > 0 && (
-                <div className="w-full relative">
+                <div className="w-full relative pl-5">
                     <FaImages className="w-6 h-6 text-indigo-400 hover:text-indigo-500 absolute top-0 right-0 animate-bounce" onClick={setToggler} />
                 </div>
             )}
@@ -65,7 +65,13 @@ function Project({ project }) {
                     animationDuration={800}
                     infinite={true}
                     autoPlay={
-                        moreThen768 && project.technologies.length <= 4 ? false : moreThen1024 && project.technologies.length <= 5 ? false : true
+                        moreThen768 && project.technologies.length <= 4
+                            ? false
+                            : moreThen1024 && project.technologies.length <= 5
+                            ? false
+                            : project.technologies.length <= 2
+                            ? false
+                            : true
                     }
                     disableButtonsControls={true}
                     disableDotsControls={true}
