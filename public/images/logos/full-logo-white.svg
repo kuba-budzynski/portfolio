@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1208.82711" height="626.46387" viewBox="0 0 1208.82711 626.46387">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        font-size: 576.32104px;
+        font-family: MyriadPro-Regular, Myriad Pro;
+        letter-spacing: 0.01em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1" data-name="Layer 1">
+    <circle class="cls-1" cx="219.01359" cy="61.22934" r="39.72669"/>
+    <circle class="cls-1" cx="498.57365" cy="232.43989" r="39.7267"/>
+    <circle class="cls-1" cx="327.3923" cy="507.57934" r="39.72671"/>
+    <circle class="cls-1" cx="140.71453" cy="435.41572" r="39.7267" transform="translate(-392.80321 457.61349) rotate(-87.40279)"/>
+    <circle class="cls-1" cx="404.74224" cy="180.2842" r="32.88161" transform="translate(81.22418 459.52894) rotate(-82.53429)"/>
+    <circle class="cls-1" cx="419.74363" cy="488.26608" r="32.88161"/>
+    <circle class="cls-1" cx="478.10565" cy="325.93028" r="32.8816"/>
+    <circle class="cls-1" cx="479.40001" cy="140.10928" r="32.88162"/>
+    <circle class="cls-1" cx="233.59863" cy="488.26608" r="32.8816"/>
+    <circle class="cls-1" cx="68.7447" cy="242.87498" r="32.88161"/>
+    <circle class="cls-1" cx="68.7447" cy="427.7049" r="32.88162"/>
+    <circle class="cls-1" cx="126.64908" cy="81.77413" r="32.88161"/>
+    <circle class="cls-1" cx="378.65662" cy="131.72853" r="21.46173"/>
+    <circle class="cls-1" cx="117.7323" cy="176.49375" r="21.46174"/>
+    <circle class="cls-1" cx="117.56692" cy="495.6675" r="21.46173"/>
+    <circle class="cls-1" cx="428.79458" cy="392.37996" r="21.46173"/>
+    <circle class="cls-1" cx="167.36478" cy="437.82717" r="21.46173"/>
+    <circle class="cls-1" cx="428.79458" cy="73.87684" r="21.46173"/>
+    <circle class="cls-1" cx="486.72521" cy="438.28257" r="21.46173"/>
+    <circle class="cls-1" cx="59.87748" cy="131.72853" r="21.46174"/>
+    <circle class="cls-1" cx="173.0814" cy="141.22315" r="12.76406"/>
+    <circle class="cls-1" cx="132.23838" cy="382.96507" r="12.76405"/>
+    <circle class="cls-1" cx="373.00262" cy="427.7049" r="12.76405"/>
+    <circle class="cls-1" cx="414.72668" cy="185.98073" r="12.76406"/>
+    <circle class="cls-1" cx="524.59117" cy="382.96507" r="12.76405"/>
+    <circle class="cls-1" cx="373.00262" cy="35.19516" r="12.76405"/>
+    <circle class="cls-1" cx="22.48125" cy="185.83347" r="12.76405"/>
+    <circle class="cls-1" cx="173.16114" cy="533.76139" r="12.76406"/>
+    <circle class="cls-1" cx="331.15862" cy="441.58465" r="8.52589"/>
+    <circle class="cls-1" cx="428.79458" cy="228.71157" r="8.52589"/>
+    <circle class="cls-1" cx="537.58891" cy="340.13679" r="8.52589"/>
+    <circle class="cls-1" cx="215.48033" cy="547.30605" r="8.52589"/>
+    <circle class="cls-1" cx="119.47432" cy="340.13679" r="8.5259"/>
+    <circle class="cls-1" cx="8.5259" cy="228.71157" r="8.52589"/>
+    <circle class="cls-1" cx="216.09961" cy="127.71152" r="8.5259"/>
+    <circle class="cls-1" cx="330.94804" cy="22.45368" r="8.52589"/>
+  </g>
+  <g id="Layer_2" data-name="Layer 2">
+    <text class="cls-2" transform="translate(572.57808 482.38379)">KB</text>
+  </g>
+</svg>
