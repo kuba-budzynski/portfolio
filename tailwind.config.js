@@ -1,6 +1,7 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
+    mode: 'jit',
     purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
     darkMode: false,
     theme: {
@@ -19,8 +20,9 @@ module.exports = {
         },
         extend: {
             backgroundImage: (theme) => ({
-                wave: "url('https://svgshare.com/i/XnV.svg')",
-                'wave-static': "url('https://svgshare.com/i/XoH.svg')"
+                wave: "url('https://ik.imagekit.io/0omc2vwzaz9/backWave_CFY0Q7zza.svg')",
+                // 'wave-static': "url('https://ik.imagekit.io/0omc2vwzaz9/backWaveStatic_Nem2sYW8q.svg')"
+                'wave-static': "url('https://ik.imagekit.io/0omc2vwzaz9/static-wave_wwYdjbvEYFi.svg')"
             }),
             spacing: {
                 128: '32rem',
@@ -44,5 +46,10 @@ module.exports = {
     variants: {
         extend: {}
     },
-    plugins: [require('tailwindcss-textshadow')]
+    plugins: [
+        require('tailwindcss-textshadow'),
+        require('@tailwindcss/typography'),
+        require('@tailwindcss/line-clamp'),
+        require('@tailwindcss/aspect-ratio')
+    ]
 };

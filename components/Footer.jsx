@@ -31,7 +31,7 @@ function Footer() {
                                     <p className="text-center text-white group-hover:text-gray-300 font-light cursor-pointer">Email</p>
                                 </div>
                             </a>
-                            <a href="https://www.linkedin.com/" target="_blank">
+                            <a href="https://www.linkedin.com/in/kuba-budzynski" target="_blank">
                                 <div className="group">
                                     <Image src={linkedin} width={!mini ? 30 : 40} height={!mini ? 30 : 40} className="mx-auto" alt="LinkedIn" />
                                     <p className="text-center text-white group-hover:text-gray-300 font-light cursor-pointer">Linkedin</p>

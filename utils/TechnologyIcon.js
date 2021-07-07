@@ -45,10 +45,24 @@ import circleci from '../public/images/icons/circleci.svg';
 import vercel from '../public/images/icons/vercel.svg';
 import firebase from '../public/images/icons/firebase.svg';
 import auth0 from '../public/images/icons/auth0.svg';
-import graphCMS from '../public/images/icons/graphcms.svg';
+import graphCMS from '../public/images/icons/Graphcms.svg';
 import algolia from '../public/images/icons/algolia.svg';
 import gatsby from '../public/images/icons/gatsby.svg';
 import imagekit from '../public/images/icons/imagekit.svg';
+import jest from '../public/images/icons/jest.svg';
+import cypress from '../public/images/icons/cypress.svg';
+import rtl from '../public/images/icons/rtl.svg';
+import styledComponents from '../public/images/icons/styledComponents.svg';
+import junit from '../public/images/icons/junit5.svg';
+import googleAnalytics from '../public/images/icons/googleAnalytics.svg';
+import googleMaps from '../public/images/icons/googleMaps.svg';
+import dotnet from '../public/images/icons/dotnet.svg';
+import jquery from '../public/images/icons/jquery.svg';
+import apollo from '../public/images/icons/apollo.svg';
+import coil from '../public/images/icons/coil.svg';
+import materialUI from '../public/images/icons/materialUI.svg';
+import github from '../public/images/icons/githubDark.svg';
+import preact from '../public/images/icons/preact.svg';
 
 import Image from 'next/image';
 
@@ -358,6 +372,90 @@ export const match = (technology, width = 60, height = 60) => {
             return (
                 <>
                     <Image src={imagekit} width={width} height={height} alt="Imagekit" data-tip="Imagekit" />
+                </>
+            );
+        case 'Jest':
+            return (
+                <>
+                    <Image src={jest} width={width} height={height} alt="Jest" data-tip="Jest" />
+                </>
+            );
+        case 'Cypress':
+            return (
+                <>
+                    <Image src={cypress} width={width} height={height} alt="Cypress" data-tip="Cypress" />
+                </>
+            );
+        case 'ReactTestingLibrary':
+            return (
+                <>
+                    <Image src={rtl} width={width} height={height} alt="React Testing Library" data-tip="React Testing Library" />
+                </>
+            );
+        case 'StyledComponents':
+            return (
+                <>
+                    <Image src={styledComponents} width={width} height={height} alt="Styled Components" data-tip="Styled Components" />
+                </>
+            );
+        case 'JUnit5':
+            return (
+                <>
+                    <Image src={junit} width={width} height={height} alt="JUnit5" data-tip="Junit5" />
+                </>
+            );
+        case 'GoogleAnalytics':
+            return (
+                <>
+                    <Image src={googleAnalytics} width={width} height={height} alt="Google Analytics" data-tip="Google Analytics" />
+                </>
+            );
+        case 'GoogleMaps':
+            return (
+                <>
+                    <Image src={googleMaps} width={width} height={height} alt="Google Maps" data-tip="Google Maps" />
+                </>
+            );
+        case 'Dotnet':
+            return (
+                <>
+                    <Image src={dotnet} width={width} height={height} alt=".NET" data-tip=".NET" />
+                </>
+            );
+        case 'JQuery':
+            return (
+                <>
+                    <Image src={jquery} width={width} height={height} alt="JQuery" data-tip="JQuery" />
+                </>
+            );
+        case 'Coil':
+            return (
+                <>
+                    <Image src={coil} width={width} height={height} alt="Coil" data-tip="Coil" />
+                </>
+            );
+        case 'Apollo':
+            return (
+                <>
+                    <Image src={apollo} width={width} height={height} alt="Apollo GraphQL Client" data-tip="Apollo GraphQL Client" />
+                </>
+            );
+        case 'materialUI':
+            return (
+                <>
+                    <Image src={materialUI} width={width} height={height} alt="MaterialUI" data-tip="Material UI" />
+                </>
+            );
+        case 'GithubPages':
+            return (
+                <>
+                    <Image src={github} width={width} height={height} alt="Github Pages" data-tip="Github Pages" />
+                </>
+            );
+        case 'Preact':
+            return (
+                <>
+                    <Image src={preact} width={width} height={height} alt="Preact" data-tip="Preact" />
                 </>
             );
         default:

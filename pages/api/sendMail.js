@@ -1,10 +1,7 @@
 import sgMail from '@sendgrid/mail';
 
 export default async function handler(req, res) {
-    sgMail.setApiKey(process.env.SENDGRID_KEY);
-    // console.log(process.env.SENDGRID_KEY);
-    // console.log(process.env.EMAIL_SENDER);
-    // console.log(process.env.EMAIL_TO);
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     const message = {
         to: process.env.EMAIL_TO,
         from: process.env.EMAIL_SENDER,

@@ -44,7 +44,11 @@ export default function Navbar() {
                                     <MenuIcon className="h-8 w-8 self-center" aria-hidden="true" />
                                 </Popover.Button>
                                 <div className="relative self-center">
-                                    <Image src={logo} width={40} height={40} className="animate-pulse" alt="Logo" />
+                                    <Link href="/">
+                                        <a>
+                                            <Image src={logo} width={40} height={40} className="animate-pulse" alt="Logo" />
+                                        </a>
+                                    </Link>
                                 </div>
                             </div>
 
@@ -103,18 +107,23 @@ export default function Navbar() {
                                                     static
                                                     className="absolute -left-full transform -translate-x-1/2 z-40 mt-8 px-2 w-screen max-w-md sm:px-0">
                                                     <div className=" rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden bg-white">
-                                                        <h1 className="text-left text-lg text-gray-600 font-semibold pt-4 pl-4">
-                                                            Latest repositories
-                                                        </h1>
+                                                        <Link href="/projects">
+                                                            <a className="py-8 px-4 flex items-cente bg-indigo-50 hover:bg-indigo-100 w-full justify-center justify-items-center group space-x-3">
+                                                                <FaBriefcase className="flex-shrink-0 h-7 w-7 text-indigo-400" aria-hidden="true" />
+                                                                <span className="text-lg font-bold text-indigo-400 uppercase">
+                                                                    See all my projects
+                                                                </span>
+                                                            </a>
+                                                        </Link>
                                                         <div
-                                                            className={`relative flex flex-col overflow-y-scroll max-h-64 ${styled.scrollbar} divide-y-2 divide-gray-100 pb-4`}>
+                                                            className={`relative flex flex-col overflow-y-scroll max-h-64 ${styled.scrollbar} divide-y-2 divide-gray-100`}>
                                                             {!data ? (
                                                                 <div className="w-full h-16 mx-auto">
                                                                     <Loader color="text-indigo-500"></Loader>
                                                                 </div>
                                                             ) : (
-                                                                data.projects.map((d) => (
-                                                                    <div className="w-full h-full space-y-1 py-3 px-4" key={d.url}>
+                                                                data.projects.slice(0, 3).map((d) => (
+                                                                    <div className="w-full h-full space-y-1 py-3 px-4 hover:bg-indigo-50" key={d.url}>
                                                                         <p className="text-center text-base font-semibold text-gray-600">{d.title}</p>
                                                                         <div className="flex space-x-5 w-full justify-center">
                                                                             <a className="" href={d.github} target="_blank">
@@ -130,15 +139,6 @@ export default function Navbar() {
                                                                 ))
                                                             )}
                                                         </div>
-                                                        <Link href="/projects">
-                                                            <a className="p-5 flex items-cente bg-gray-100 hover:bg-gray-200 w-full justify-center justify-items-center group space-x-3">
-                                                                <FaBriefcase
-                                                                    className="flex-shrink-0 h-7 w-7 text-indigo-400 group-hover:text-indigo-500"
-                                                                    aria-hidden="true"
-                                                                />
-                                                                <span className="text-base font-bold text-gray-500 uppercase">All my projects</span>
-                                                            </a>
-                                                        </Link>
                                                     </div>
                                                 </Popover.Panel>
                                             </Transition>

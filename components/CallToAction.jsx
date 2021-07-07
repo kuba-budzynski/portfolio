@@ -1,12 +1,13 @@
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 import { Dialog, Listbox, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
-
+import { store } from 'react-notifications-component';
 import { FaTrashAlt } from 'react-icons/fa';
 import Image from 'next/image';
 import { RiSendPlaneFill } from 'react-icons/ri';
 import github from '../public/images/icons/github.svg';
 import useMedia from 'use-media';
+import axios from 'axios';
 
 const topics = [{ name: 'Other' }, { name: 'New commision' }, { name: 'Job offer' }, { name: 'Error on site' }];
 
@@ -30,6 +31,39 @@ export default function CallToAction() {
     function openModal() {
         setIsOpen(true);
     }
+
+    const send = async (data) => {
+        const res = await axios.post('/api/sendMail', data);
+        if (res.status == 200) {
+            store.addNotification({
+                title: 'Wonderful',
+                message: 'Your message was successfully sent',
+                type: 'success',
+                insert: 'top',
+                container: 'bottom-center',
+                animationIn: ['animate__animated', 'animate__fadeIn'],
+                animationOut: ['animate__animated', 'animate__fadeOut'],
+                dismiss: {
+                    duration: 5000,
+                    onScreen: true
+                }
+            });
+        } else {
+            store.addNotification({
+                title: 'My apologies',
+                message: 'It seens ther is an issue with your message',
+                type: 'danger',
+                insert: 'top',
+                container: 'bottom-center',
+                animationIn: ['animate__animated', 'animate__fadeIn'],
+                animationOut: ['animate__animated', 'animate__fadeOut'],
+                dismiss: {
+                    duration: 5000,
+                    onScreen: true
+                }
+            });
+        }
+    };
 
     return (
         <>
@@ -97,7 +131,19 @@ export default function CallToAction() {
                                 leave="ease-in duration-200"
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95">
-                                <div className="flex flex-col justify-items-center justify-center w-full h-full max-w-xl px-5 text-left align-middle transition-all transform bg-white shadow-xl min-h-screen">
+                                <form
+                                    onSubmit={async (e) => {
+                                        e.preventDefault();
+                                        await send({
+                                            replyTo: reply,
+                                            subject,
+                                            content,
+                                            topic: selected.name
+                                        });
+                                        closeModal();
+                                    }}
+                                    id="mini"
+                                    className="flex flex-col justify-items-center justify-center w-full h-full max-w-xl px-5 text-left align-middle transition-all transform bg-white shadow-xl min-h-screen">
                                     <Dialog.Title
                                         as="h3"
                                         className="text-2xl text-center font-bold leading-6 text-indigo-500 flex space-x-2 justify-center max-h-screen py-3">
@@ -172,16 +218,17 @@ export default function CallToAction() {
 
                                         <div className="flex flex-col mt-3 w-full">
                                             <label
-                                                htmlFor="email1"
+                                                htmlFor="subject"
                                                 className="text-base font-semibold text-indigo-500 mt-4 leading-tight tracking-normal mb-1">
                                                 Subject
                                             </label>
                                             <input
-                                                id="email1"
+                                                id="subject"
                                                 value={subject}
                                                 onChange={(e) => setSubject(e.target.value)}
                                                 className="relative w-full py-2 pl-3 text-left bg-coolGray-100 rounded shadow-md cursor-default focus:outline-none"
                                                 placeholder="Some interesting subject"
+                                                required
                                             />
                                         </div>
                                         <div className="flex flex-col mt-3 w-full">
@@ -192,10 +239,11 @@ export default function CallToAction() {
                                             </label>
                                             <textarea
                                                 id="email1"
+                                                required
                                                 value={content}
                                                 onChange={(e) => setContent(e.target.value)}
                                                 style={{ minHeight: '5rem', maxHeight: '12rem' }}
-                                                className="resize-none relative w-full py-2 pl-3 text-left bg-coolGray-100 rounded shadow-md cursor-default focus:outline-none "
+                                                className="resize-none relative w-full py-2 pl-3 text-left bg-coolGray-100 rounded shadow-md cursor-default focus:outline-none border-none outline-none"
                                             />
                                         </div>
                                         <div className="flex flex-col mt-3 w-full">
@@ -206,6 +254,7 @@ export default function CallToAction() {
                                             </label>
                                             <input
                                                 id="email1"
+                                                required
                                                 value={reply}
                                                 onChange={(e) => setReply(e.target.value)}
                                                 className="relative w-full py-2 pl-3 text-left bg-coolGray-100 rounded shadow-md cursor-default focus:outline-none"
@@ -216,9 +265,9 @@ export default function CallToAction() {
 
                                     <div className="w-full flex justify-evenly md:w-3/4 mx-auto my-8">
                                         <button
-                                            type="button"
-                                            className="px-8 py-2 text-sm font-medium text-green-700 bg-green-200 hover:bg-green-300 border-transparent rounded-md focus:outline-none"
-                                            onClick={closeModal}>
+                                            type="submit"
+                                            form="mini"
+                                            className="px-8 py-2 text-sm font-medium text-green-700 bg-green-200 hover:bg-green-300 border-transparent rounded-md focus:outline-none">
                                             <div className="mx-auto flex space-x-1">
                                                 <RiSendPlaneFill className="w-4 h-4 self-center place-self-center text-green-700" />
                                                 <span>Send</span>
@@ -234,7 +283,7 @@ export default function CallToAction() {
                                             </div>
                                         </button>
                                     </div>
-                                </div>
+                                </form>
                             </Transition.Child>
                         ) : (
                             <Transition.Child
@@ -246,7 +295,19 @@ export default function CallToAction() {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95">
                                 <div className="inline-block w-full h-full max-w-2xl px-5 pt-5 text-left align-middle transition-all transform bg-white shadow-xl md:rounded-2xl min-h-screen md:min-h-0">
-                                    <div className="max-w-xl mx-auto">
+                                    <form
+                                        id="bigger"
+                                        onSubmit={async (e) => {
+                                            e.preventDefault();
+                                            await send({
+                                                replyTo: reply,
+                                                subject,
+                                                content,
+                                                topic: selected.name
+                                            });
+                                            closeModal();
+                                        }}
+                                        className="max-w-xl mx-auto">
                                         <Dialog.Title
                                             as="h3"
                                             className="text-4xl text-center font-bold leading-6 text-indigo-500 flex space-x-2 justify-center max-h-screen py-2">
@@ -329,6 +390,7 @@ export default function CallToAction() {
                                                 </label>
                                                 <input
                                                     id="email1"
+                                                    required
                                                     value={subject}
                                                     onChange={(e) => setSubject(e.target.value)}
                                                     className="relative w-full py-2 pl-3 text-left bg-coolGray-100 rounded shadow-md cursor-default focus:outline-none"
@@ -343,6 +405,7 @@ export default function CallToAction() {
                                                 </label>
                                                 <textarea
                                                     id="email1"
+                                                    required
                                                     value={content}
                                                     onChange={(e) => setContent(e.target.value)}
                                                     style={{ minHeight: '5rem', maxHeight: '12rem' }}
@@ -356,6 +419,7 @@ export default function CallToAction() {
                                                     Where should I reply?
                                                 </label>
                                                 <input
+                                                    required
                                                     id="email1"
                                                     value={reply}
                                                     onChange={(e) => setReply(e.target.value)}
@@ -367,9 +431,9 @@ export default function CallToAction() {
 
                                         <div className="w-full flex justify-center md:w-3/4 mx-auto my-9 space-x-6">
                                             <button
-                                                type="button"
-                                                className="px-8 py-2 text-sm font-medium text-green-700 bg-green-200 hover:bg-green-300 border-transparent rounded-md focus:outline-none"
-                                                onClick={closeModal}>
+                                                type="submit"
+                                                form="bigger"
+                                                className="px-8 py-2 text-sm font-medium text-green-700 bg-green-200 hover:bg-green-300 border-transparent rounded-md focus:outline-none">
                                                 <div className="mx-auto flex space-x-1">
                                                     <RiSendPlaneFill className="w-4 h-4 self-center place-self-center text-green-700" />
                                                     <span>Send</span>
@@ -385,7 +449,7 @@ export default function CallToAction() {
                                                 </div>
                                             </button>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </Transition.Child>
                         )}

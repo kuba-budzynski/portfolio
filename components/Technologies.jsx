@@ -13,6 +13,8 @@ import spring from '../public/images/icons/spring.svg';
 import tailwindcss from '../public/images/icons/tailwindcss.svg';
 import typescript from '../public/images/icons/typescript.svg';
 
+import ReactTooltip from 'react-tooltip';
+
 function Technologies() {
     return (
         <section className="w-full mx-auto pt-4" id="technologies">
@@ -28,77 +30,78 @@ function Technologies() {
             <div className="py-4 flex flex-wrap">
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center border-r border-b border-gray-200 py-4 md:py-6 items-center cursor-pointer">
                     <a href="https://reactjs.org/" target="_blank">
-                        <Image src={reactLogo} width={80} height={80} alt="React.js" />
+                        <Image src={reactLogo} width={80} height={80} alt="React.js" data-tip="React" />
                         <p className="text-blueGray-600 text-lg text-center font-semibold">React</p>
                     </a>
                 </div>
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center md:border-r border-b border-gray-200  py-4 md:py-6 items-center cursor-pointer">
                     <a href="https://tailwindcss.com/" target="_blank">
-                        <Image src={tailwindcss} width={110} height={80} alt="Tailwind css" />
+                        <Image src={tailwindcss} width={110} height={80} alt="Tailwind css" data-tip="TailwindCSS" />
                         <p className="text-blueGray-600 text-lg text-center font-semibold">TailwindCSS</p>
                     </a>
                 </div>
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center border-r border-b border-gray-200 py-4 md:py-6 items-center cursor-pointer">
                     <a href="https://nodejs.org/en/" target="_blank">
-                        <Image src={node} width={110} height={80} alt="Node.js" />
+                        <Image src={node} width={110} height={80} alt="Node.js" data-tip="Node.js" />
                         <p className="text-blueGray-600 text-lg text-center font-semibold">Node.js</p>
                     </a>
                 </div>
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center border-b border-gray-200  py-4 md:py-6 items-center cursor-pointer">
                     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-                        <Image src={javascript} width={80} height={80} alt="Javascript" />
+                        <Image src={javascript} width={80} height={80} alt="Javascript" data-tip="Javascript" />
                         <p className="text-blueGray-600 text-lg text-center font-semibold">Javascript</p>
                     </a>
                 </div>
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center border-r border-b border-gray-200  py-4 md:py-6 items-center cursor-pointer">
                     <a href="https://www.java.com/en/" target="_blank">
-                        <Image src={java} width={80} height={80} alt="Java" />
+                        <Image src={java} width={80} height={80} alt="Java" data-tip="Java" />
                     </a>
                 </div>
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center md:border-r border-b border-gray-200  py-4 md:py-6 items-center cursor-pointer">
                     <a href="https://www.mongodb.com/" target="_blank">
-                        <Image src={mongodb} width={80} height={80} alt="Mongodb" />
+                        <Image src={mongodb} width={80} height={80} alt="Mongodb" data-tip="MongoDB" />
                         <p className="text-blueGray-600 text-lg text-center font-semibold">MongoDB</p>
                     </a>
                 </div>
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center border-r border-b border-gray-200  py-4 md:py-6 items-center cursor-pointer">
                     <a href="https://kotlinlang.org/" target="_blank">
-                        <Image src={kotlin} width={80} height={80} alt="Kotlin" />
+                        <Image src={kotlin} width={80} height={80} alt="Kotlin" data-tip="Kotlin" />
                         <p className="text-blueGray-600 text-lg text-center font-semibold">Kotlin</p>
                     </a>
                 </div>
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center border-b border-gray-200  py-4 md:py-6 items-center cursor-pointer">
                     <a href="https://www.typescriptlang.org/" target="_blank">
-                        <Image src={typescript} width={80} height={80} alt="Typescript" />
+                        <Image src={typescript} width={80} height={80} alt="Typescript" data-tip="Typescript" />
                         <p className="text-blueGray-600 text-lg text-center font-semibold">Typescript</p>
                     </a>
                 </div>
 
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center border-r border-b md:border-b-0 border-gray-200  py-4 md:py-6 items-center cursor-pointer">
                     <a href="https://spring.io/" target="_blank">
-                        <Image src={spring} width={80} height={80} alt="Spring.io" />
+                        <Image src={spring} width={80} height={80} alt="Spring.io" data-tip="Spring" />
                         <p className="text-blueGray-600 text-lg text-center font-semibold">Spring</p>
                     </a>
                 </div>
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center md:border-r border-b md:border-b-0 border-gray-200  py-4 md:py-6 items-center cursor-pointer">
                     <a href="https://graphql.org/" target="_blank">
-                        <Image src={graphql} width={80} height={80} alt="GraphQL" />
+                        <Image src={graphql} width={80} height={80} alt="GraphQL" data-tip="GraphQL" />
                         <p className="text-blueGray-600 text-lg text-center font-semibold">GraphQL</p>
                     </a>
                 </div>
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center border-r border-gray-200  py-4 md:py-6 items-center cursor-pointer">
                     <a href="https://nextjs.org/" target="_blank">
-                        <Image src={next} width={130} height={80} alt="Next.js / Vercel" />
+                        <Image src={next} width={130} height={80} alt="Next.js / Vercel" data-tip="Next.js" />
                         <p className="text-blueGray-600 text-lg text-center font-semibold">Next.js / Vercel</p>
                     </a>
                 </div>
                 <div className="w-6/12 xl:w-1/4 lg:w-1/4 md:w-1/4 flex flex-col justify-center border-gray-200  py-4 md:py-6 items-center cursor-pointer">
                     <a href="https://www.android.com/" target="_blank">
-                        <Image src={android} width={80} height={80} alt="Android" />
+                        <Image src={android} width={80} height={80} alt="Android" data-tip="Android" />
                         <p className="text-blueGray-600 text-lg text-center font-semibold">Android</p>
                     </a>
                 </div>
             </div>
+            <ReactTooltip place="top" type="info" effect="float" />
         </section>
     );
 }

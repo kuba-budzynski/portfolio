@@ -1,14 +1,16 @@
+import dynamic from 'next/dynamic';
 import { FaGamepad, FaLanguage } from 'react-icons/fa';
-
 import { BsFillGearFill } from 'react-icons/bs';
-import Element from '../components/Element';
-import Footer from '../components/Footer';
+import { IoIosBonfire } from 'react-icons/io';
+import { GiSpiderWeb } from 'react-icons/gi';
 import Head from 'next/head';
 import Image from 'next/image';
-import Navbar from '../components/Navbar';
 import React from 'react';
-import Stat from '../components/Stat';
-import profile from '../public/profile.png';
+
+const Navbar = dynamic(import('../components/Navbar'));
+const Footer = dynamic(import('../components/Footer'));
+const Element = dynamic(import('../components/Element'));
+const Stat = dynamic(import('../components/Stat'));
 
 function aboutme({ faqs }) {
     return (
@@ -37,7 +39,7 @@ function aboutme({ faqs }) {
                         ))}
                     </div>
                 </div>
-                <div className="w-full mx-auto flex flex-col items-center justify-center py-16">
+                <div className="w-full mx-auto flex flex-col items-center justify-center py-4">
                     <div className="w-full flex justify-center">
                         <Image
                             src="https://ik.imagekit.io/0omc2vwzaz9/tr:w-500,h-500/profile_-w5ip8PL8.png"
@@ -47,10 +49,13 @@ function aboutme({ faqs }) {
                             alt="Profile"
                         />
                     </div>
-                    <p className="text-justify lg:text-center text-gray-600 text-base py-5 max-w-3xl mx-auto mb-8 px-8 lg:px-2">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                        text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-                        survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.{' '}
+                    <p className="text-justify lg:text-center text-gray-600 text-lg py-5 max-w-4xl mx-auto mb-8 px-8 lg:px-0">
+                        I'm a Computer Science student at{' '}
+                        <a href="https://wiz.pwr.edu.pl/" target="_blank" className="underline hover:text-indigo-500">
+                            Wrocław University of Science and Technology
+                        </a>{' '}
+                        at the department of Computer Science and Management. As of now, my main focus is to excel my knowledge about Web Development,
+                        its best practices, and industry standards as well as to gain professional experience.
                     </p>
                     <div role="list" className="mx-auto w-5/6 max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
                         <Stat question="Languages I know" anwser="Polish (native), English (advanced), Russian (basic)">
@@ -59,16 +64,18 @@ function aboutme({ faqs }) {
 
                         <Stat
                             question="First piece of code I've ever written"
-                            anwser="It was a java Minecraft plugin - very simple but opened my eyes">
+                            anwser="It was a java Minecraft plugin - very simple but at the same time opened my eyes to endless possibilities">
                             <FaGamepad className="w-12 h-12 text-indigo-400" />
                         </Stat>
 
-                        <Stat question="Getting started" anwser="Get started fast with installations">
-                            <BsFillGearFill className="w-12 h-12 text-indigo-400" />
+                        <Stat
+                            question="Plans for the future"
+                            anwser="I would like to learn and excel mostly in the field of Web Apps. I still see a huge potential for it in the future">
+                            <GiSpiderWeb className="w-12 h-12 text-indigo-400" />
                         </Stat>
 
-                        <Stat question="Getting started" anwser="Get started fast with installations">
-                            <BsFillGearFill className="w-12 h-12 text-indigo-400" />
+                        <Stat question="My favourite game series" anwser="Dark Souls series and Sekiro">
+                            <IoIosBonfire className="w-12 h-12 text-indigo-400" />
                         </Stat>
                     </div>
                 </div>
