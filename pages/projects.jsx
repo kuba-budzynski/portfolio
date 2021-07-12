@@ -12,6 +12,10 @@ function projects({ projects }) {
             <Head>
                 <title>My projects</title>
                 <meta name="description" content="Some of the projects I've made" />
+                <meta property="og:title" content="My projects" />
+                <meta property="og:description" content="Some of the projects I've made" />
+                <meta property="og:url" content="https://www.kubabudzynski.com/projects/" />
+                <meta property="og:type" content="website" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar />
